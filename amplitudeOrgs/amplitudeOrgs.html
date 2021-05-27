@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Amplitude Org Details">
+        <div class="slds-var-m-horizontal_medium">
+            <lightning-combobox
+                name="SelectOrg"
+                label="Select Amplitude Org"
+                placeholder="Select Org"
+                options={options}
+                onchange={handleOrgChange} ></lightning-combobox>
+
+            <template if:true={showDetails}>
+                <br/>
+                <p>Count of Users: {totalUser}</p>
+                <template for:each={selectedOrgMatrics} for:item="metrictype">
+                    <p key={metrictype}>{metrictype}</p>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>
